@@ -1,0 +1,45 @@
+name: Composite action
+
+on: 
+  workflow_dispatch
+
+inputs:
+  pythonVersion:
+    description: Python version
+    required: false
+    default: '3.x'
+  nodeVersion:
+    description: Node version
+    required: false
+    default: '18.x'
+
+outputs:
+  repoOwner:
+    description: "Repo Owner"
+    value: ${{ steps.var.outputs.RepositoryOwner }}
+  defaultBranch:
+    description: "Default Branch"
+    value: ${{ steps.var.outputs.DefaultBranch }}
+  cicdkey:
+    description: "CI/CD key"
+    value: ${{ steps.var.outputs.CICDkey }}
+
+runs:
+  using: "composite"
+  steps: 
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Setup NodeJS
+      uses: actions/setup-nodejs@v4
+      with:
+        node-version: '18.x'
+
+    - name: Variable
+      id: var
+      run: |
+        echo "RepositoryOwner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+        echo "DefaultBranch=main" >> $GITHUB_OUTPUT
+        echo "CICDkey=xyz" >> $GITHUB_OUTPUT
