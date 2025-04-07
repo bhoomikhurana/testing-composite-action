@@ -39,6 +39,7 @@ runs:
 
     - name: Variable
       id: var
+      shell: bash
       run: |
         echo "RepositoryOwner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
         echo "DefaultBranch=main" >> $GITHUB_OUTPUT
