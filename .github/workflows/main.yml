@@ -1,0 +1,17 @@
+name: Set Global Var Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set Global Vars
+        id: global
+        uses: ./.github/actions/SetGlobalVariables
+
+      - name: Print variables
+        run: echo ${{ steps.global.outputs.EmailRecepient }}
