@@ -10,7 +10,7 @@ runs:
   using: composite
 
   steps:
-    - name: Gloabl variables
+    - name: Global variables
       shell: bash
       id: globals
       working-directory: .
