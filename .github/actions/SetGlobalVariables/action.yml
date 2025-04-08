@@ -14,5 +14,5 @@ runs:
       shell: bash
       id: globals
       run: |
-        chmod +x global.sh
+        chmod +x ./.github/actions/SetGlobalVariables/global.sh
         ./.github/actions/SetGlobalVariables/global.sh
