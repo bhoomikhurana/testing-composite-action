@@ -13,5 +13,4 @@ runs:
     - name: Global variables
       shell: bash
       id: globals
-      working-directory: .
-      run: global.sh
+      run: ./.github/actions/SetGlobalVariables/global.sh
