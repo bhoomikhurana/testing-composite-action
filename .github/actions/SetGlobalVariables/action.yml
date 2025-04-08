@@ -1,0 +1,17 @@
+name: Set Global Variables
+
+outputs:
+  EmailRecepient:
+    value: ${{ steps.globals.outputs.EmailRecepient }}
+  CICDkey:
+    value: ${{ steps.globals.outputs.CICDkey }}
+
+run:
+  using: composite
+
+  steps:
+    - name: Gloabl variables
+      shell: bash
+      id: globals
+      working-directory: ${{ github.action_path }}
+      run: ./global.sh
