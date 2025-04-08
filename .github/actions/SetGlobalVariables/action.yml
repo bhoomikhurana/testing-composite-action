@@ -6,7 +6,7 @@ outputs:
   CICDkey:
     value: ${{ steps.globals.outputs.CICDkey }}
 
-run:
+runs:
   using: composite
 
   steps:
