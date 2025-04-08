@@ -13,5 +13,5 @@ run:
     - name: Gloabl variables
       shell: bash
       id: globals
-      working-directory: ${{ github.action_path }}
+      working-directory: .
       run: ./global.sh
