@@ -14,4 +14,4 @@ runs:
       shell: bash
       id: globals
       working-directory: .
-      run: ./global.sh
+      run: global.sh
